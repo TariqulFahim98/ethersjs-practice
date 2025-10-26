@@ -1,5 +1,5 @@
 /**
- * signers.js
+ * provider.js
  * 
  * Quick Ethers.js v6 refresher:
  * - Connect to a JSON-RPC provider (Sepolia testnet via Alchemy)
@@ -8,16 +8,14 @@
  * - Convert between BigNumber and ETH
  * - Check transaction count (nonce)
  */
-
+require("dotenv").config(); // Load .env variables
 const { ethers } = require("ethers"); // Import Ethers.js library
 
 // -----------------------------
 // 1️⃣ Connect to a provider
 // -----------------------------
-// JSON-RPC provider URL from Alchemy (Sepolia testnet)
-const provider = new ethers.JsonRpcProvider(
-    "https://eth-sepolia.g.alchemy.com/v2/vdLFhb2yj2KebcytF5iSY"
-);
+// JSON-RPC provider in .env file from Alchemy (Sepolia testnet)
+const provider = new ethers.JsonRpcProvider(process.env.RPC_PROVIDER);
 
 // -----------------------------
 // 2️⃣ Main async function
